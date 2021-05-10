@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+import load_dotenv from dotenv
 import django_heroku
 
 
@@ -81,9 +82,12 @@ WSGI_APPLICATION = 'opendatapdx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'opendatapdx',
-        'USER': 'austen',
-        'PASSWORD': 'alqr7bz7',
+        # 'NAME': 'opendatapdx',
+        'NAME': os.getenv('DATABASE_NAME')
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD')
+        # 'USER': 'austen',
+        # 'PASSWORD': 'alqr7bz7',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
