@@ -10,6 +10,7 @@ requests = "*"
 django-crispy-forms = "*"
 paramiko = "*"
 openpyxl = "*"
+django-core = "*"
 django-docutils = "*"
 djangorestframework = "*"
 markdown = "*"
@@ -17,4 +18,4 @@ django-filter = "*"
 python-dotenv = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
