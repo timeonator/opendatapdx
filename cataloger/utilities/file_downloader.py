@@ -74,7 +74,7 @@ class FileDownloader:
             client = paramiko.SSHClient()
             client.set_missing_host_key_policy(AllowAnythingPolicy())
             # If a username isn't provided, it tried to parse one from the url.
-            if sftp_username is "" and parsed_url.username is not None:
+            if sftp_username == "" and parsed_url.username != None:
                 sftp_username = parsed_url.username
             if parsed_url.port is not None:
                 client.connect(hostname=parsed_url.hostname, port=parsed_url.port, username=sftp_username,
