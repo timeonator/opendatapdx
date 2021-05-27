@@ -1,16 +1,20 @@
-version: '3'
+version: "3.9"
 
 services:
   db:
     image: postgres
     restart: always
+    # volumes:
+    #     - ./data/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_HOST_AUTH_METHOD: trust 
+        - POSTGRES_DB=opendatapdx
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
   web:
     build: .
     command: bash -c "export DJANGO_SETTINGS_MODULE=opendatapdx.local_settings; pipenv run python3 manage.py migrate; pipenv run python3 manage.py collectstatic --noinput; pipenv run python3 manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - .:/code
+    # volumes:
+    #   - .:/code
     ports:
       - "8000:8000"
     depends_on:
