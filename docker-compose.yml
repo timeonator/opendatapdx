@@ -2,6 +2,8 @@ version: "3.9"
 
 services:
   db:
+    ports: 
+        - "5432"
     image: postgres
     restart: always
     # volumes:
@@ -12,7 +14,10 @@ services:
         - POSTGRES_PASSWORD=postgres
   web:
     build: .
-    command: bash -c "export DJANGO_SETTINGS_MODULE=opendatapdx.local_settings; pipenv run python3 manage.py migrate; pipenv run python3 manage.py collectstatic --noinput; pipenv run python3 manage.py runserver 0.0.0.0:8000"
+    command: bash -c "export  \
+             pipenv run python manage.py migrate; \
+             pipenv run python manage.py runserver 0.0.0.0:8000"
+
     # volumes:
     #   - .:/code
     ports:
