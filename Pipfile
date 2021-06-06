@@ -16,6 +16,7 @@ markdown = "*"
 django-filter = "*"
 python-dotenv = "*"
 django = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.9"
