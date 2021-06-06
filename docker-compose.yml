@@ -14,7 +14,7 @@ services:
         - POSTGRES_PASSWORD=postgres
   web:
     build: .
-    command: bash -c "export  \
+    command: bash -c "export DJANGO_SETTINGS_MODULE=opendatapdx.local_settings; \
              pipenv run python manage.py migrate; \
              pipenv run python manage.py runserver 0.0.0.0:8000"
 
