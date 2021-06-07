@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.8
 RUN useradd -rm -d /home/myuser -s /bin/bash -g root -G sudo -u 1001 myuser
 
 RUN apt update && \
